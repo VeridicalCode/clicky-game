@@ -17,10 +17,10 @@
 import React from 'react';
 import { zeroScore, useGlobalState } from '../../utils/state';
 import Image from '../Image/Image';
-import imageArray from '../../utils/imageArray';
 
 function Grid() {
   const [ globalScore ] = useGlobalState('score');
+  const [ imageArray ] = useGlobalState('imageArray');
 
   return (
     <div>

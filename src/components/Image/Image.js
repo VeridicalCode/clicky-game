@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { iterateScore, useGlobalState } from '../../utils/state';
+import { iterateScore, shuffleImages } from '../../utils/state';
+import { useGlobalState } from '../../utils/state';
 
 // takes a prop - the image source - and makes that a tile
 
 function ImageDiv(props) {
-  const [ globalScore ] = useGlobalState('score');
   const [ wasClicked, setWasClicked ] = useState(false);
+  const [ imageArray ] = useGlobalState('imageArray');
 
   return (
     <a
@@ -14,6 +15,7 @@ function ImageDiv(props) {
         event.preventDefault();
         console.log(`event target: `, event.target.getAttribute('value'));
         setWasClicked(true);
+        shuffleImages(imageArray);
         iterateScore();
       }}
     >
