@@ -1,25 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import { GlobalStateProvider } from './utils/state';
 import './App.css';
+import Header from './components/Header/Header';
+import Grid from './components/Grid/Grid';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalStateProvider>
+      <Header>A header</Header>
+      <Grid>the grid component will shuffle itself</Grid>
+    </ GlobalStateProvider>
   );
 }
 
