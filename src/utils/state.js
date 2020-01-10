@@ -2,7 +2,7 @@ import { createGlobalState } from 'react-hooks-global-state';
 import imageArray from './imageArray';
 
 // first create two global states
-const { GlobalStateProvider, setGlobalState, useGlobalState } = createGlobalState ({
+const { GlobalStateProvider, setGlobalState, useGlobalState } = createGlobalState({
   score: 0,
   topScore: 0,
   imageArray: imageArray,
@@ -10,15 +10,15 @@ const { GlobalStateProvider, setGlobalState, useGlobalState } = createGlobalStat
 
 // then export functions to modify them
 export const iterateScore = () => {
-  setGlobalState('score', value => value + 1 );
+  setGlobalState('score', value => value + 1);
 };
 
 export const zeroScore = () => {
-  setGlobalState('score', value => 0 );
-}
+  setGlobalState('score', value => 0);
+};
 
 export const setTopScore = (topScore) => {
-  setGlobalState('topScore', value => ({...value, topScore}));
+  setGlobalState('topScore', value => topScore);
 };
 
 // fisher-yates to give a nice random image array

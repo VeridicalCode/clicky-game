@@ -2,34 +2,42 @@
 export default [
   {
     src: require('../assets/inst-1.jpg'),
-    num: 1,
+    key: 1,
+    clicked: 'false',
   },
   {
     src: require('../assets/inst-2.jpg'),
-    num: 2,
+    key: 2,
+    clicked: 'false',
   },
   {
     src: require('../assets/inst-3.jpg'),
-    num: 3,
+    key: 3,
+    clicked: 'false',
   },
   {
     src: require('../assets/inst-4.jpg'),
-    num: 4,
+    key: 4,
+    clicked: 'false',
   },
   {
     src: require('../assets/inst-5.jpg'),
-    num: 5,
+    key: 5,
+    clicked: 'false',
   },
   {
     src: require('../assets/inst-6.jpg'),
-    num: 6,
+    key: 6,
+    clicked: 'false',
   },
   {
     src: require('../assets/inst-7.jpg'),
-    num: 7,
+    key: 7,
+    clicked: 'false',
   },
   {
     src: require('../assets/inst-8.jpg'),
-    num: 8,
+    key: 8,
+    clicked: 'false',
   },
 ]

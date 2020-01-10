@@ -1,30 +1,19 @@
-import React, { useState } from 'react'
-import { iterateScore, shuffleImages } from '../../utils/state';
-import { useGlobalState } from '../../utils/state';
+import React from 'react'
+import './image.css'
 
-// takes a prop - the image source - and makes that a tile
+
+// imageArray is a state held by the Grid container div. each object in it has an image source and a "clicked" value.
+// we pass those in as props and check against them on click.
 
 function ImageDiv(props) {
-  const [ wasClicked, setWasClicked ] = useState(false);
-  const [ imageArray ] = useGlobalState('imageArray');
 
   return (
-    <a
-      href='./'
-      onClick={event => {
-        event.preventDefault();
-        console.log(`event target: `, event.target.getAttribute('value'));
-        setWasClicked(true);
-        shuffleImages(imageArray);
-        iterateScore();
-      }}
-    >
-      <img
-        src={props.src}
-        alt={props.alt}
-        value={wasClicked}
-      />
-    </a>
+    <img
+      value={props.value}
+      src={props.src}
+      alt={props.alt}
+      clicked={props.clicked}
+    />
   )
 }
 

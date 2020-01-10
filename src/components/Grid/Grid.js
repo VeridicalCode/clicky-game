@@ -1,36 +1,51 @@
-// this is a parent component. it'll display 20 <image> components on a 4x5 grid
-// this grid uses an array to fill in the src component of each image
-// it also gives each image a property of "clicked = false"
-// it'll also call all of our scripts
-// each image will cary a title and an onclick
-// the onclick will grab the "clicked" status;
-// if false, change to true and iterate score
-// regenerate array & print
-// if true, set score to zero
-// regenerate array, reset all "clicked" statuses, print
-
-// so three different functions
-// print array with status unclicked
-// print array with status not modified
-// modify status of clicked only
-
-import React from 'react';
-import { zeroScore, useGlobalState } from '../../utils/state';
+import React, { useState } from 'react';
+import { iterateScore, shuffleImages, zeroScore, useGlobalState } from '../../utils/state';
+import imageArray from '../../utils/imageArray';
 import Image from '../Image/Image';
 
 function Grid() {
   const [ globalScore ] = useGlobalState('score');
-  const [ imageArray ] = useGlobalState('imageArray');
+  const [ localArray, setLocalArray ] = useState(imageArray);
 
   return (
     <div>
       <span>current score = {globalScore}</span>
-      <div className='grid-container'>
-        {imageArray.map(imgObj => {
+      <div >
+        {localArray.map((imgObj, index) => {
           return (
-            <Image
-              src={imgObj.src}
-            />
+            <a
+              value={index}
+              href='./'
+              clicked={imgObj.clicked}
+              onClick={event => {
+                event.preventDefault();
+                console.log(`event fired. target: `, event.target);
+                if (event.currentTarget.getAttribute('clicked')==='true') {
+                  alert(`You already clicked that instrument. Resetting game.`)
+                  setLocalArray(imageArray);
+                  zeroScore();
+                }
+                else {
+                  let tempArray = localArray;
+                  console.log(`temp array: `, tempArray);
+                  const newIndex = event.currentTarget.getAttribute('value');
+                  console.log(`index of current object: `, newIndex);
+                  console.log(`target of click: `, event.target);
+                  const newObj = localArray[newIndex];
+                  console.log(`newObj to insert: `, newObj)
+                  newObj.clicked = 'true';
+                  console.log(`not yet clicked. adding to score.`)
+                  tempArray.splice(newIndex, 1, newObj);
+                  setLocalArray(tempArray);
+                  iterateScore();
+                }
+                shuffleImages(localArray);
+              }}
+            >
+              <Image
+                src={imgObj.src}
+              />
+            </a>
           )
         })}
       </div>
