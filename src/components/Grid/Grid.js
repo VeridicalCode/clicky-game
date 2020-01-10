@@ -15,32 +15,22 @@
 // modify status of clicked only
 
 import React from 'react';
-import { iterateScore, zeroScore, useGlobalState } from '../../utils/state';
+import { zeroScore, useGlobalState } from '../../utils/state';
 import Image from '../Image/Image';
 import imageArray from '../../utils/imageArray';
 
 function Grid() {
-  const [value] = useGlobalState('score');
+  const [ globalScore ] = useGlobalState('score');
 
   return (
     <div>
-      <span>current score = {value}</span>
+      <span>current score = {globalScore}</span>
       <div className='grid-container'>
         {imageArray.map(imgObj => {
           return (
-            <a
-              href='./'
-              onClick={event => {
-                event.preventDefault();
-                console.log(`onclick registered for `, event.target.getAttribute('value'));
-                iterateScore();
-              }}
-            >
-              <Image
-                src={imgObj.src}
-                value={'unclicked'}
-              />
-            </a>
+            <Image
+              src={imgObj.src}
+            />
           )
         })}
       </div>
