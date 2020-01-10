@@ -7,7 +7,11 @@ import React from 'react'
 
 function HeaderDiv(props) {
   return (
-    <div>header div</div>
+    <div>
+    <h1>Welcome to Instrumental Memory!</h1>
+    <br/>
+    <span>Click the images to increase your score, but don't click the same one twice, or you'll lose!</span>
+    </div>
   );
 }
 
