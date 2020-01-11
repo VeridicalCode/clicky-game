@@ -15,6 +15,7 @@ function HeaderDiv(props) {
       <h1>Welcome to Instrumental Memory!</h1>
       <br />
       <span>Click the images to increase your score, but don't click the same one twice, or you'll lose!</span>
+      <br/>
       <span>current score = {globalScore}</span>
       <br/>
       <span>top score = {globalTopScore}</span>

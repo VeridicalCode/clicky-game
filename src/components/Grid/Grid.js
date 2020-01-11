@@ -11,9 +11,6 @@ function Grid() {
 
   return (
     <div>
-      <span>current score = {globalScore}</span>
-      <br/>
-      <span>top score = {globalTopScore}</span>
       <div >
         {localArray.map((imgObj, index) => {
           return (

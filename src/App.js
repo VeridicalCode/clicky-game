@@ -7,8 +7,8 @@ import Grid from './components/Grid/Grid';
 function App() {
   return (
     <GlobalStateProvider>
-      <Header>A header</Header>
-      <Grid>the grid component will shuffle itself</Grid>
+      <Header />
+      <Grid />
     </ GlobalStateProvider>
   );
 }
